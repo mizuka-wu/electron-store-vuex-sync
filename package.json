@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "auto sync electron-store and vuex",
   "main": "dist/bundle.js",
+  "files": ["dist/"],
   "scripts": {
     "build": "npx rollup --config",
     "test": "echo \"Error: no test specified\" && exit 1"
