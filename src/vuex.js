@@ -9,6 +9,10 @@ import throttle from 'lodash/throttle'
  * @param {string} [storeName]
  */
 export default function (ipcRenderer, schema = {}, storeName = DEFAULT_STORE_NAME) {
+  if (!ipcRenderer) {
+    throw new Error('ipcRenderer is required')
+  }
+
   const EVENT = getEventConst(storeName)
 
   const syncToBackground = throttle(function (state) {
