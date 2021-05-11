@@ -20,6 +20,10 @@ export function getState (targetSchema = {}) {
         state[key] = 0
         break
       }
+      case 'array': {
+        state[key] = []
+        break
+      }
       default: {
         state[key] = ''
         break
