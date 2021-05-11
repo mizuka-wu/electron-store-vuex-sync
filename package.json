@@ -1,6 +1,6 @@
 {
   "name": "electron-store-vuex-sync",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "auto sync electron-store and vuex",
   "main": "dist/bundle.js",
   "files": [
