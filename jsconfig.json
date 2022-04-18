@@ -1,6 +1,9 @@
 {
     "compilerOptions": {
         "baseUrl": ".",
+        "typeRoots": [
+            "types"
+        ],
         "paths": {
             "@/*": [
                 "src/*"

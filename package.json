@@ -7,6 +7,7 @@
     "dist/",
     "types/"
   ],
+  "typings": "types/index.d.ts",
   "scripts": {
     "build": "npx rollup --config",
     "test": "echo \"Error: no test specified\" && exit 1"
