@@ -1,11 +1,6 @@
 import { getEventConst, DEFAULT_STORE_NAME } from './util/const'
 
-/**
- *
- * @param {import('electron').ipcMain} ipcMain
- * @param {import('electron-store')} store
- * @param {string} [storeName]
- */
+/** @type {import('types/background').default} */
 export default function (ipcMain, store, storeName = DEFAULT_STORE_NAME) {
   if (!ipcMain || !store) {
     throw new Error('ipcMain or store is required!')

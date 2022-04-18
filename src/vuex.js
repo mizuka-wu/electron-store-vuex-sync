@@ -4,9 +4,7 @@ import throttle from 'lodash/throttle'
 
 /**
  * 创建vuex创建参数的配置
- * @param {import('electron').ipcRenderer} ipcRenderer
- * @param {import('electron-store').Schema} schema 后台store的结构
- * @param {string} [storeName]
+ * @type {import('types/vuex').default}
  */
 export default function (ipcRenderer, schema = {}, storeName = DEFAULT_STORE_NAME) {
   if (!ipcRenderer) {
