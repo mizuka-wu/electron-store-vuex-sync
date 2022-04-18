@@ -14,7 +14,7 @@ export default function (ipcRenderer, schema = {}, storeName = DEFAULT_STORE_NAM
   const EVENT = getEventConst(storeName)
 
   const syncToBackground = throttle(function (state) {
-    ipcRenderer.send(EVENT.EVENT_SYNC, state)
+    ipcRenderer.send(EVENT.EVENT_SYNC, JSON.parse(JSON.stringify(state)))
   }, 500)
 
   return {
