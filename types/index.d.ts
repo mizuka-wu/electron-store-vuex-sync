@@ -5,6 +5,10 @@ declare module "electron-store-vuex-sync" {
         injectStore: background,
         getVuexStoreConfig: vuex
     }
+
+    export const injectStore: background
+
+    export const getVuexStoreConfig: vuex
 }
 
 declare module "electron-store-vuex-sync/dist/background" {
