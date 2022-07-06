@@ -47,6 +47,30 @@ return store
 
 这样，会根据你schema的key，自动添加`mutation`,名字类似于`set:key名`
 
+#### 初始化的vuex state和store同步
+
+默认情况下，state根据schema推导，但是可以通过传入第四个参数defaultStore，让state中每个属性就为defaultStore对应的值
+
+默认同步会在加载成功后通过对应事件同步
+
+```javascript
+import Vuex from 'vuex'
+import { getVuexStoreConfig } from 'electron-store-vuex-sync'
+import { ipcRenderer } from 'electron'
+import store from '../store' // 导出的electron store
+
+const schema = {
+    a: {
+        type: 'array'
+    }
+}
+
+const store = new Vuex.Store(getVuexStoreConfig(ipcRenderer, schema, null, store))
+return store
+```
+
+这样，会根据你schema的key，自动添加`mutation`,名字类似于`set:key名`
+
 ## 参数
 
 ### injectStore
