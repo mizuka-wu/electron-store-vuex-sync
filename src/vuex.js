@@ -6,7 +6,7 @@ import throttle from 'lodash/throttle'
  * 创建vuex创建参数的配置
  * @type {import('types/vuex').default}
  */
-export default function (ipcRenderer, schema = {}, storeName = DEFAULT_STORE_NAME) {
+export default function (ipcRenderer, schema = {}, storeName = DEFAULT_STORE_NAME, defaultStore = {}) {
   if (!ipcRenderer) {
     throw new Error('ipcRenderer is required')
   }
@@ -18,7 +18,7 @@ export default function (ipcRenderer, schema = {}, storeName = DEFAULT_STORE_NAM
   }, 500)
 
   return {
-    state: getState(schema),
+    state: getState(schema, defaultStore),
     mutations: {
       [EVENT.EVENT_SYNC]: function (state, electronStoreState) {
         Object.assign(state, electronStoreState)

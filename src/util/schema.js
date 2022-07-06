@@ -3,9 +3,14 @@
  * @param {import('electron-store').Schema} targetSchema
  * @returns
  */
-export function getState (targetSchema = {}) {
+export function getState (targetSchema = {}, defaultStore = {}) {
   return Object.keys(targetSchema).reduce((state, key) => {
     const { type, properties } = targetSchema[key]
+
+    if (key in defaultStore) {
+      state[key] = defaultStore[key]
+      return state
+    }
 
     switch (type) {
       case 'object': {
