@@ -1,4 +1,5 @@
 # Electron-store-vuex-sync
+
 自动同步`electron-store`和`vuex`
 
 ## 使用方法
@@ -15,6 +16,7 @@ injectStore(ipcMain, store)
 ```
 
 ### 在创建vuex的地方
+
 ```javascript
 import Vuex from 'vuex'
 import { getVuexStoreConfig } from 'electron-store-vuex-sync'
@@ -23,6 +25,27 @@ import { ipcRenderer } from 'electron'
 const store = new Vuex.Store(getVuexStoreConfig(ipcRenderer))
 return store
 ```
+
+#### 如果需要可以update
+
+如果需要vuex可以同步回store
+
+```javascript
+import Vuex from 'vuex'
+import { getVuexStoreConfig } from 'electron-store-vuex-sync'
+import { ipcRenderer } from 'electron'
+
+const schema = {
+    a: {
+        type: 'array'
+    }
+}
+
+const store = new Vuex.Store(getVuexStoreConfig(ipcRenderer, schema))
+return store
+```
+
+这样，会根据你schema的key，自动添加`mutation`,名字类似于`set:key名`
 
 ## 参数
 
